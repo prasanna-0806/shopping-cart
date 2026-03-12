@@ -17,29 +17,26 @@
         <input type="number" id="productQty" placeholder="Qty" min="1" value="1" />
         <button class="btn-primary" onclick="addToCart()">Add Item</button>
       </div>
-      <div class="clear-btn-wrapper">
+      <div>
         <button class="btn-danger" id="clearBtn" onclick="clearCart()">Clear Cart</button>
       </div>
     </div>
 
-    <div class="cart-wrapper">
-      <div class="table-container">
-        <table id="cartTable" class="responsive-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Subtotal</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="cartBody"></tbody>
-        </table>
-      </div>
-    </div>
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
 
+    <!-- BILL STYLE SUMMARY -->
     <div id="cartSummary" class="bill-section">
       <div class="bill-header">
         <h3>BILL SUMMARY</h3>
