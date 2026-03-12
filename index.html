@@ -36,10 +36,23 @@
       <tbody id="cartBody"></tbody>
     </table>
 
-    <div id="cartSummary" class="summary">
-      <p>Subtotal: ₹ <span id="subtotal">0.00</span></p>
-      <p>Discount (5% if > ₹10,000): ₹ <span id="discount">0.00</span></p>
-      <p><strong>Final Total: ₹ <span id="finalTotal">0.00</span></strong></p>
+    <!-- BILL STYLE SUMMARY -->
+    <div id="cartSummary" class="bill-section">
+      <div class="bill-header">
+        <h3>BILL SUMMARY</h3>
+      </div>
+      <div class="bill-row">
+        <span>Subtotal:</span>
+        <span>₹ <span id="subtotal">0.00</span></span>
+      </div>
+      <div class="bill-row discount-row">
+        <span>Discount (5% if > ₹10,000):</span>
+        <span>-₹ <span id="discount">0.00</span></span>
+      </div>
+      <div class="bill-total-row">
+        <span>TOTAL:</span>
+        <span>₹ <span id="finalTotal">0.00</span></span>
+      </div>
     </div>
   </div>
 
