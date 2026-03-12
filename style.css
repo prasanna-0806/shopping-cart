@@ -21,9 +21,10 @@ body {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--light-blue) 100%);
   background-attachment: fixed;
   margin: 0;
-  padding: 2rem;
+  padding: 1rem;
   color: var(--text-dark);
   min-height: 100vh;
+  line-height: 1.6;
 }
 
 .container { 
@@ -34,9 +35,9 @@ body {
 h1 {
   text-align: center;
   color: var(--white);
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 700;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -44,9 +45,9 @@ h1 {
   background: var(--glass);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 24px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
 }
@@ -58,19 +59,20 @@ h1 {
 
 .input-group {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .input-group input {
-  padding: 1rem 1.25rem;
+  padding: 0.875rem 1rem;
   border: 2px solid rgba(122, 170, 206, 0.4);
   border-radius: 16px;
   font-size: 1rem;
   background: var(--white);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .input-group input:focus {
@@ -80,14 +82,21 @@ h1 {
   transform: translateY(-2px);
 }
 
+.clear-btn-wrapper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
 button {
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.5rem;
   border: none;
   border-radius: 16px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  max-width: 250px;
 }
 
 .btn-primary {
@@ -112,7 +121,18 @@ button {
   box-shadow: 0 15px 35px rgba(231, 76, 60, 0.4);
 }
 
-table {
+/* RESPONSIVE TABLE */
+.cart-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 24px;
+}
+
+.table-container {
+  min-width: 600px;
+}
+
+.responsive-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -122,22 +142,67 @@ table {
   border-radius: 24px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .responsive-table thead {
+    display: none;
+  }
+  
+  .responsive-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(122, 170, 206, 0.2);
+    border-radius: 16px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+  }
+  
+  .responsive-table td {
+    display: block;
+    text-align: right;
+    padding: 0.5rem 0;
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+  
+  .responsive-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0.5rem;
+    width: 45%;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: left;
+  }
+  
+  .responsive-table td:last-child {
+    text-align: center;
+  }
+  
+  .responsive-table .btn-danger {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    max-width: 100px;
+    margin: 0 auto;
+  }
 }
 
 th {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: var(--white);
-  padding: 1.5rem;
+  padding: 1.2rem 1rem;
   text-align: left;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
 td {
-  padding: 1.25rem 1.5rem;
+  padding: 1rem;
   border-bottom: 1px solid rgba(122, 170, 206, 0.2);
   transition: all 0.3s ease;
 }
@@ -149,7 +214,7 @@ tr:hover {
   transform: scale(1.01);
 }
 
-/* WIDER FULL-WIDTH BILL SECTION */
+/* FULL WIDTH BILL SECTION */
 .bill-section {
   width: 100%;
   background: var(--glass);
@@ -163,13 +228,13 @@ tr:hover {
 
 .bill-header {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  padding: 1.5rem 2rem;
-  text-align: left;
+  padding: 1.5rem;
+  text-align: center;
 }
 
 .bill-header h3 {
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0;
   letter-spacing: 1px;
@@ -179,9 +244,9 @@ tr:hover {
 .bill-row {
   display: flex;
   justify-content: space-between;
-  padding: 1.4rem 2rem;
+  padding: 1.2rem 1.5rem;
   border-bottom: 1px solid rgba(122, 170, 206, 0.2);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 500;
   align-items: center;
 }
@@ -198,27 +263,49 @@ tr:hover {
 .bill-total-row {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  padding: 1.8rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 1.5rem;
 }
 
 .bill-total-row span:first-child {
-  font-size: 1.2rem;
-  opacity: 0.95;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
 .bill-total-row span:last-child {
   font-size: 1.6rem;
 }
 
-@media (max-width: 768px) {
-  .input-group { grid-template-columns: 1fr; }
-  body { padding: 1rem; }
-  h1 { font-size: 2.2rem; }
+/* TABLET & DESKTOP ENHANCEMENTS */
+@media (min-width: 769px) {
+  body {
+    padding: 2rem;
+  }
+  
+  .input-group {
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 1rem;
+  }
+  
+  button {
+    width: auto;
+    max-width: none;
+  }
+  
+  .clear-btn-wrapper {
+    text-align: right;
+    margin-top: 0;
+  }
+  
+  .controls {
+    padding: 2.5rem;
+  }
+}
+
+/* ULTRA-WIDE SCREENS */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
 }
