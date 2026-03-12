@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart - Premium</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Shopping Cart Manager</h1>
+
+    <div class="controls">
+      <div class="input-group">
+        <input type="text" id="productName" placeholder="Product name" />
+        <input type="number" id="productPrice" placeholder="Price (₹)" min="0" step="0.01" />
+        <input type="number" id="productQty" placeholder="Qty" min="1" value="1" />
+        <button class="btn-primary" onclick="addToCart()">Add Item</button>
+      </div>
+      <div>
+        <button class="btn-danger" id="clearBtn" onclick="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
+
+    <div id="cartSummary" class="summary">
+      <p>Subtotal: ₹ <span id="subtotal">0.00</span></p>
+      <p>Discount (5% if > ₹10,000): ₹ <span id="discount">0.00</span></p>
+      <p><strong>Final Total: ₹ <span id="finalTotal">0.00</span></strong></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
