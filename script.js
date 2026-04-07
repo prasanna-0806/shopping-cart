@@ -23,16 +23,13 @@ function renderCart() {
     `;
     tbody.appendChild(row);
   });
-
   const discount = subtotal > 10000 ? subtotal * 0.05 : 0;
   const finalTotal = subtotal - discount;
-
   subtotalEl.textContent = subtotal.toFixed(2);
   discountEl.textContent = discount.toFixed(2);
   totalEl.textContent = finalTotal.toFixed(2);
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-
 function addToCart() {
   const name = document.getElementById("productName").value.trim();
   const price = parseFloat(document.getElementById("productPrice").value);
@@ -42,10 +39,8 @@ function addToCart() {
     alert("Please enter valid product name, price, and quantity.");
     return;
   }
-
   cart.push({ name, price, quantity: qty });
   renderCart();
-
   document.getElementById("productName").value = "";
   document.getElementById("productPrice").value = "";
   document.getElementById("productQty").value = "1";
