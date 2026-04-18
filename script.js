@@ -11,7 +11,6 @@ function renderCart() {
   cart.forEach((item, i) => {
     const itemTotal = item.price * item.quantity;
     subtotal += itemTotal;
-
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${i + 1}</td>
