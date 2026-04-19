@@ -1,5 +1,4 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 function renderCart() {
   const tbody = document.getElementById("cartBody");
   tbody.innerHTML = "";
